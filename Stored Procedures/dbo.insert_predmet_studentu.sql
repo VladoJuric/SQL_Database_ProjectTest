@@ -26,9 +26,9 @@ begin
 		if exists (select * from dbo.Predmeti where predmet=@predmet)
 		begin
 			if(@ocjena is null or @ocjena = '')
-				insert into dbo.StudentPredmet (ID_Predmet,ID_Student) values((select ID_Predmet from dbo.Predmeti where predmet=@predmet),(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum))
+				insert into dbo.StudentPredmetTest (ID_Predmet,ID_Student) values((select ID_Predmet from dbo.Predmeti where predmet=@predmet),(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum))
 			else if(@ocjena > 0 and @ocjena < 6)
-				insert into dbo.StudentPredmet (ID_Predmet,ID_Student,ocjena) values((select ID_Predmet from dbo.Predmeti where predmet=@predmet),(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum),@ocjena)			
+				insert into dbo.StudentPredmetTest (ID_Predmet,ID_Student,ocjena) values((select ID_Predmet from dbo.Predmeti where predmet=@predmet),(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum),@ocjena)			
 			else
 				print 'Pogreska prilikom unosa ocjene predmeta'
 		end

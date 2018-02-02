@@ -37,12 +37,12 @@ declare @max int
 			print 'Izbrisan profesor '+@ime+' '+@prezime+' posto ne predaje nijedan predmet'
 		end
 
-		if exists (select * from dbo.StudentPredmet where ID_Predmet =  @pred_id)
+		if exists (select * from dbo.StudentPredmetTest where ID_Predmet =  @pred_id)
 		begin
-			delete from dbo.StudentPredmet  where ID_Predmet = @pred_id
+			delete from dbo.StudentPredmetTest  where ID_Predmet = @pred_id
 
-			select @max = max(ID_Student) from dbo.StudentPredmet where ID_Predmet = @pred_id
-			select @count = min(ID_Student) from dbo.StudentPredmet where ID_Predmet = @pred_id
+			select @max = max(ID_Student) from dbo.StudentPredmetTest where ID_Predmet = @pred_id
+			select @count = min(ID_Student) from dbo.StudentPredmetTest where ID_Predmet = @pred_id
 			select @ispis = 'S predmeta '+@predmet+', izbrisani su studenti: '
 			
 			while(@count <= @max)

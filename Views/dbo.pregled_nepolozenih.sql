@@ -6,8 +6,8 @@ CREATE VIEW [dbo].[pregled_nepolozenih]
 AS
 SELECT DISTINCT dbo.NewStudenti.ime, dbo.NewStudenti.prezime
 FROM            dbo.NewStudenti INNER JOIN
-                         dbo.StudentPredmet ON dbo.NewStudenti.ID_Student = dbo.StudentPredmet.ID_Student
-WHERE        (dbo.StudentPredmet.ocjena = 1)
+                         dbo.StudentPredmetTest ON dbo.NewStudenti.ID_Student = dbo.StudentPredmetTest.ID_Student
+WHERE        (dbo.StudentPredmetTest.ocjena = 1)
 GO
 EXEC sp_addextendedproperty N'MS_DiagramPane1', N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 

@@ -19,7 +19,7 @@ CREATE trigger [dbo].[after_delete_predmet]  on [dbo].[Predmeti]
 after delete 
 as
 begin
-	delete from dbo.StudentPredmet where ID_Predmet = (select ID_Predmet from deleted)
+	delete from dbo.StudentPredmetTest where ID_Predmet = (select ID_Predmet from deleted)
 end
 GO
 ALTER TABLE [dbo].[Predmeti] ADD CONSTRAINT [PK_Predmeti] PRIMARY KEY CLUSTERED  ([ID_Predmet]) ON [PRIMARY]

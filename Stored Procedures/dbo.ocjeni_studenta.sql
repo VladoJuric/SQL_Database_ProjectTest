@@ -22,9 +22,9 @@ if(len(@ime) <= 50 and
    len(@datum) <= 10 and
    @ocjena > 0 and @ocjena < 6)
 begin
-	if exists (select * from dbo.StudentPredmet where ID_Student=(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum) and ID_Predmet=(select ID_Predmet from dbo.Predmeti where predmet=@predmet))
+	if exists (select * from dbo.StudentPredmetTest where ID_Student=(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum) and ID_Predmet=(select ID_Predmet from dbo.Predmeti where predmet=@predmet))
 	begin
-		update StudentPredmet set ocjena=@ocjena where ID_Student=(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum) and ID_Predmet=(select ID_Predmet from dbo.Predmeti where predmet=@predmet)
+		update StudentPredmetTest set ocjena=@ocjena where ID_Student=(select ID_Student from dbo.NewStudenti where ime=@ime and prezime=@prez and datum_rodenja=@datum) and ID_Predmet=(select ID_Predmet from dbo.Predmeti where predmet=@predmet)
 	end
 	else
 		print 'Pogreska prilikom ocjenjivanja studenrta'

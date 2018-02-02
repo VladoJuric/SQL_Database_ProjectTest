@@ -6,7 +6,7 @@ CREATE VIEW [dbo].[pregled_ocjena_studenta]
 AS
 SELECT        stud.ime AS ime_studenta, stud.prezime AS prezime_studenta, pred.predmet, stpr.ocjena
 FROM            dbo.NewStudenti AS stud INNER JOIN
-                         dbo.StudentPredmet AS stpr ON stud.ID_Student = stpr.ID_Student INNER JOIN
+                         dbo.StudentPredmetTest AS stpr ON stud.ID_Student = stpr.ID_Student INNER JOIN
                          dbo.Predmeti AS pred ON stpr.ID_Predmet = pred.ID_Predmet INNER JOIN
                          dbo.Profesori AS prof ON pred.ID_Profesor = prof.ID_Profesor
 GO

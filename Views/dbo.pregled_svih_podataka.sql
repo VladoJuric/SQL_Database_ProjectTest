@@ -7,7 +7,7 @@ AS
 SELECT        stud.ime AS ime_studenta, stud.prezime AS prezime_studenta, stud.datum_rodenja, pred.predmet, prof.ime AS ime_profesora, prof.prezime AS prezime_profesora, stpr.ocjena, prof.soba AS soba_profesora, 
                          pred.opis AS opis_predmeta
 FROM            dbo.NewStudenti AS stud INNER JOIN
-                         dbo.StudentPredmet AS stpr ON stud.ID_Student = stpr.ID_Student INNER JOIN
+                         dbo.StudentPredmetTest AS stpr ON stud.ID_Student = stpr.ID_Student INNER JOIN
                          dbo.Predmeti AS pred ON stpr.ID_Predmet = pred.ID_Predmet INNER JOIN
                          dbo.Profesori AS prof ON pred.ID_Profesor = prof.ID_Profesor
 GO

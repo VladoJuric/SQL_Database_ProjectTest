@@ -23,11 +23,11 @@ declare @opis varchar(500)
 	if exists (select * from dbo.NewStudenti where ime=@ime and prezime=@prezime)
 	begin
 		select @stud_id=ID_Student from dbo.NewStudenti where ime = @ime and prezime = @prezime
-		select @pred_id=ID_Predmet from dbo.StudentPredmet where ID_Student = @stud_id
+		select @pred_id=ID_Predmet from dbo.StudentPredmetTest where ID_Student = @stud_id
 
-		delete from dbo.StudentPredmet where ID_Student = @stud_id
+		delete from dbo.StudentPredmetTest where ID_Student = @stud_id
 
-		if not exists (select * from dbo.StudentPredmet where ID_Predmet = @pred_id)
+		if not exists (select * from dbo.StudentPredmetTest where ID_Predmet = @pred_id)
 		begin
 			select @predmet=predmet from dbo.Predmeti where ID_Predmet = @pred_id
 			select @opis=opis from dbo.Predmeti where ID_Predmet = @pred_id

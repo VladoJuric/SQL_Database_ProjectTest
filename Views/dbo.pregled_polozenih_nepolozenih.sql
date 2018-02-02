@@ -5,7 +5,7 @@ GO
 CREATE VIEW [dbo].[pregled_polozenih_nepolozenih]
 AS
 SELECT DISTINCT s.ime, s.prezime, CAST(COUNT(sp.ocjena) AS varchar(10)) + '/5' AS polozeno_predmeta
-FROM            dbo.StudentPredmet AS sp INNER JOIN
+FROM            dbo.StudentPredmetTest AS sp INNER JOIN
                          dbo.NewStudenti AS s ON sp.ID_Student = s.ID_Student
 WHERE        (sp.ocjena > 1)
 GROUP BY s.ime, s.prezime

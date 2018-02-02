@@ -73,7 +73,7 @@ begin
 				print 'Predmet '+@pr_predm+' nije unesen u sustav vec postoji u sustavu !!!'
 			end
 
-			insert into dbo.StudentPredmet(ID_Predmet,ID_Student,ocjena) values((select ID_Predmet from dbo.Predmeti where predmet=@pr_predm),(select ID_Student from dbo.NewStudenti where ime=@s_ime and prezime=@s_prez),@s_ocjena)
+			insert into dbo.StudentPredmetTest(ID_Predmet,ID_Student,ocjena) values((select ID_Predmet from dbo.Predmeti where predmet=@pr_predm),(select ID_Student from dbo.NewStudenti where ime=@s_ime and prezime=@s_prez),@s_ocjena)
 		
 		end
 		else
